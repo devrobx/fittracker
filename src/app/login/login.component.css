@@ -1,0 +1,10 @@
+.login{
+  background-image: url('../../assets/img/login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 30%;
+  padding-bottom: 30%;
+  background-position: center;
+  background-attachment: fixed;
+
+}

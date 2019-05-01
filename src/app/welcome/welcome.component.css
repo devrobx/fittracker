@@ -1,0 +1,62 @@
+
+
+.jumbotron{
+  padding-top: 20%;
+  padding-bottom: 20%;
+  margin: 0;
+}
+.banner-title{
+  color: white;
+}
+.lead{
+  color: white;
+
+}
+
+
+.welcome{
+  background-image: url('../../assets/img/bg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn-primary,.btn-primary:visited,.btn-primary:focus{
+  background-color: #262626;
+  border-color: #F2F2F2;
+
+}
+
+.btn-primary:hover{
+  background-color: #F2F2F2;
+  border-color: #262626;
+  color: #262626;
+  text-transform: capitalize;
+
+}
+
+.mycontainer{
+  padding-top: 5%;
+  background-color:white;
+}
+
+.no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.quote{
+  color: white;
+  background-image: url('../../assets/img/gym.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 30%;
+  padding-bottom: 30%;
+
+
+}
+
+.mydiv{
+  background-color: #262626;
+  opacity: .5;
+  position: relative;
+}
