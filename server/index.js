@@ -4,15 +4,19 @@ const path = require('path');
 const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-//const passport = require('passport');
+const User = require('./models/Users');
+const passport = require('passport');
+
 
 const session = require('express-session');
-//const {ensureAuthenticated} = require('./helpers/auth');
+const {ensureAuthenticated} = require('./helpers/auth');
 
 
 //Initialize Express
 const app = express();
 
+
+mongoose.model('users');
 
 //Routes
 const users = require('./routes/users');
@@ -24,13 +28,17 @@ const db = require('./config/database');
 mongoose.Promise = global.Promise;
 
 //Connect to mongoose
+
+
+
 mongoose.connect(db.mongoURI , {
   useNewUrlParser: true
 }).then(()=>{
   console.log('MongoDB connected..')
 }).catch(err => console.log(err));
 
-const User = mongoose.model('users');
+
+
 
 /* BODY PARSE MIDDLE WARE */
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -53,9 +61,21 @@ app.use(session({
 
 }));
 
+
+
+app.use(express.static(path.join(__dirname, 'src')));
+
 //Passport Middleware
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
+app.get('/', function (req, res){
+  res.sendFile(path.join(__dirname + '../../src/index.html'));
+  console.log('hello from server');
+})
+
 
 
 // User Routes
